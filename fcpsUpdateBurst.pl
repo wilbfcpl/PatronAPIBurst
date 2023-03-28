@@ -217,7 +217,7 @@ sub setupChunking
   chomp($nr);
   #[$local_filename" . ":" . __LINE__ . "]DBI Call lapsed time $elapsed."
   $num_chunks = $nr/API_CHUNK_SIZE;
-  $mods = $nr%API_CHUNK_SIZE;
+  $mods = ($nr%API_CHUNK_SIZE) - 1;
 
 
   
