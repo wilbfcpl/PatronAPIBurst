@@ -1,4 +1,5 @@
 use strict;
+use warnings;
 use diagnostics;
 use integer;
 use Time::HiRes qw( gettimeofday tv_interval);
