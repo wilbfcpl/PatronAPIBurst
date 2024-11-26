@@ -1,5 +1,4 @@
 use strict;
-use warnings;
 use diagnostics;
 use integer;
 use Time::HiRes qw( gettimeofday tv_interval);
@@ -110,7 +109,7 @@ getopts('gx:qr');
 my $local_filename=$0;
 $local_filename =~ s/.+\\([A-z]+.pl)/$1/;
        
-use if defined $opt_g, "Log::Report", mode=>'DEBUG';
+use if defined $opt_g, "Log::Report", mode=>'INFO';
 
     
 # Use today if date option not provided
@@ -323,7 +322,7 @@ for (my $current_block=0; $current_block<=$num_chunks;$current_block++ ) {
       chomp ;
 	 
       ($patronid[$current_line], $first[$current_line], $middle[$current_line], $last[$current_line],$grade[$current_line], $address[$current_line],$city[$current_line] , $state[$current_line] , $zip[$current_line], $status[$current_line],$edittime[$current_line]) = split(/,/);	  
-      INFO "[$local_filename" . ":" . __LINE__ . "]Buffering Current line " . ($current_block * API_CHUNK_SIZE + $current_line + 1 . "$_");
+      INFO "[$local_filename" . ":" . __LINE__ . "]Buffering Current line " . ($current_block * API_CHUNK_SIZE + $current_line + 1 . " $_");
     }
 
     # Burst len 
